@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#tab p span{
+				display: block;
+				float: left;
+				width: 100px;
+				height: 39px;
+				line-height: 39px;
+				text-align: center;
+			}
+			#tab div{
+				width: 300px;
+				height: 260px;
+				line-height: 260px;
+				text-align: center;
+				display: none;
+				border: #000 1px solid;
+				margin: 50px auto;
+			}
+			#tab p .on{
+				background: red;
+				color: white;
+			}
+			#tab p{
+				width: 300px;
+				height: 39px;
+				line-height: 39px;
+				border-bottom: #000 1px solid;
+				margin: 50px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="tab">
+			<p>
+			<span class="on">A</span>
+			<span>B</span>
+			<span>C</span>
+			</p>
+		<div style="display: block;">A</div>
+		<div>B</div>
+		<div>C</div>
+		</div>
+		
+	</body>
+</html>
