@@ -37,6 +37,23 @@
 				margin: 50px auto;
 			}
 		</style>
+<script>
+			window.onload = function(){
+				var oBtn = document.getElementById("tab").getElementsByTagName("span");
+				var oDiv = document.getElementById("tab").getElementsByTagName("div");
+				for(var i= 0;i<oBtn.length;i++){
+					oBtn[i].index = i;
+					oBtn[i].onclick = function(){
+						for(var i = 0;i<oBtn.length;i++){
+							oBtn.[i].className = '';
+							oDiv[i].style.display = 'none';
+						}
+						this.className = 'on';
+						oDiv[this].style.display = 'black';
+					}
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<div id="tab">
