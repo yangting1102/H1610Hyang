@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html ng-app="mk">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/yue.css"/>
+		
+	</head>
+	<body ng-controller="test">
+		<!--导航条-->
+		<nav>
+			<div id="div1">
+				<!--logo-->
+				<img src="img/logo.png" />
+			</div>
+			<div>
+				<!--标题-->
+				<h4>我的随身医生</h4>
+				<p>随时免费咨询和挂号</p>
+			</div>
+			<div>
+				<button>下载自桌面>></button>
+			</div>
+		</nav>
+		<!--清除浮动-->
+		<div id="flat"></div>
+		<!--大标题-->
+		<applet>
+			<div id="yi">
+			<p><h1 id="h1">快速问医生 </h1><span>探索搜索</span></p>
+			</div>
+			<p>今日已解决<span>{{b}}</span>个人问题</p>
+			<input type="text" placeholder="请描述你的问题"/><button ng-click="sou()">搜索</button>
+
+			<!--幻灯效果-->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<ul>
+				<li>
+					<img src="img/t1.png" alt="" />
+					<div>病状自查</div>
+				</li>
+				<li>
+					<img src="img/t2.png" alt="" />
+					<div>疾病知识</div>
+				</li>
+				<li>
+					<img src="img/t3.png" alt="" />
+					<div>用药安全</div>
+				</li>
+				<li>
+					<img src="img/t4.png" alt="" />
+					<div>健康话题</div>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<img src="img/t15.png" alt="" />
+					<div>生活助手</div>
+				</li>
+				<li>
+					<img src="img/t6.png" alt="" />
+					<div>女人窝</div>
+				</li>
+				<li>
+					<img src="img/t7.png" alt="" />
+					<div>亲子育儿</div>
+				</li>
+				<li>
+					<img src="img/t8.png" alt="" />
+					<div>快速咨询</div>
+				</li>
+			</ul>
+		</div>
+					<div class="swiper-slide">
+						<ul>
+				<li>
+					<img src="img/t9.png" alt="" />
+					<div>张庄子差</div>
+				</li>
+				<li>
+					<img src="img/t10.png" alt="" />
+					<div>手术预约</div>
+				</li>
+				<li>
+					<img src="img/t11.png" alt="" />
+					<div>手术预约</div>
+				</li>
+				<li>
+					<img src="img/t12.png" alt="" />
+					<div>手术预约</div>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<img src="img/t13.png" alt="" />
+					<div>手术预约</div>
+				</li>
+				<li>
+					<img src="img/t14.png" alt="" />
+					<div>手术预约</div>
+				</li>
+				<li>
+					<img src="img/t15.png" alt="" />
+					<div>手术预约</div>
+				</li>
+				<li>
+					<img src="img/t5.png" alt="" />
+					<div>手术预约</div>
+				</li>
+			</ul>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</applet>
+		<!--幻灯结束-->
+		<div id="div3">
+			<!--选项卡-->
+			<div>
+				<h2>健康经验</h2>
+				<div>分享让大家更健康</div>
+				<p>查看更多</p>
+			</div>
+			<hr />
+			<ul id="viwe">
+				<!--路由-->
+				<li><a href="#/nei">内科</a></li>
+				<li><a href="#/wai">外科</a></li>
+				<li><a href="#/nei">妇科</a></li>
+				<li><a href="#/wai">满课</a></li>
+			</ul 
+			
+		</div>
+		<div ng-view></div>
+	</body>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-route.js"></script>
+	<script src="js/swiper.min.js"></script>
+
+	<script>
+		var lun = new Swiper(".swiper-container",{
+			autoplay:1000,
+			loop:true,
+			pagination:".swiper-pagination"
+		});
+		var app = angular.module("mk",['ngRoute']);
+		app.controller("test",function($scope){
+			$scope.b=123455
+			$scope.sou = function(){
+			 $scope.b=$scope.b+1;
+			}
+		})
+		app.config(function($routeProvider){
+			$routeProvider.when("/nei",{
+				templateUrl:"view/nei.html",
+			}).when('/wai',{
+				templateUrl:"view/wai.html",
+			}).otherwise({
+				redirectTo:'/nei'
+			});
+		})
+	</script>
+</html>
+<script>
+(function(doc){
+function changeSize(){
+var size = doc.documentElement.clientWidth/320*10;	
+doc.querySelector('html').style.fontSize = size+'px';
+}
+window.onresize = changeSize;
+changeSize();	
+})(document);
+</script>
+<!-- 我是改过的-->
